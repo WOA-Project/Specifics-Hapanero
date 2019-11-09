@@ -4,10 +4,11 @@
 
 [Version]
 Signature   = "$WINDOWS NT$"
-Class       = HIDClass
-ClassGUID   = {745A17A0-74D3-11D0-B6FE-00A0C90F57DA}
+Class       = Extension
+ClassGUID   = {e2f84ce7-8efa-411c-aa69-97454ca4cb57}
 Provider    = %MSFT%
-DriverVer   = 05/01/2019,4.5.7.776
+ExtensionId = {21E3E289-3E58-469D-B9DF-65339CD11F5C}
+DriverVer   = 11/09/2019,1.0.0.0
 CatalogFile = SynapticsTouch_fwhap.cat
 
 [DestinationDirs]
@@ -28,7 +29,13 @@ SynaFWVendor2.img  = 1,,
 SynaFWVendor1.img, , , 0x100,
 SynaFWVendor2.img, , , 0x100,
 
-[DefaultInstall.NTARM64]
+[Manufacturer]
+%MSFT% = DeviceExtensions,NTarm64
+
+[DeviceExtensions.NTarm64]
+%TchDriver_Device_Desc% = DeviceExtension_Install, ACPI\VEN_MSHW&DEV_1003
+
+[DeviceExtension_Install]
 AddReg    = CapButtons.NT.HW.AddReg
 AddReg    = PowerConfig.NT.HW.AddReg
 AddReg    = Configuration.NT.HW.AddReg
@@ -153,9 +160,9 @@ HKLM, "SYSTEM\TOUCH\BUTTONS\BACKLIGHT", "MilliLuxRanges"    , %REG_MULTI_SZ%,  "
 MSFT                   = "LumiaWoA authors"
 Manufacturer_Name      = "Synaptics"
 Installation_Disk      = "Synaptics Touch Driver Installation Disk"
-TchDriver_Device_Desc  = "Synaptics RMI4 F12 Digitizer Device"
+TchDriver_Device_Desc  = "Synaptics RMI4 F12 Hapanero Digitizer Device"
 TchDriver_Service      = "SynapticsTouch"
-TchDriver_Service_Desc = "Synaptics RMI4 F12 Digitizer Driver Service"
+TchDriver_Service_Desc = "Synaptics RMI4 F12 Hapanero Digitizer Driver Service"
 HIDKMDF_Service        = "mshidkmdf"
 
 ; ------------- non-localizable strings
